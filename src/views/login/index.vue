@@ -38,6 +38,7 @@
 
 <script>
 import request from '@/utils/request.js'
+import {login} from '@/api/user'
 export default {
   name: "LoginIndex",
   components: {},
@@ -99,11 +100,8 @@ export default {
       
           //开启登录中....
       this.loginLoading=true
-      request({
-        methods:'POST',
-        //url:'/mp/v1_0/authorizations',
-        data:this.user
-      }).then(res=>{
+
+      login(this.user).then(res=>{//封装在调用，封装在import {login} from '@/api/user'
         console.log(res)
 
         //成功
@@ -113,6 +111,11 @@ export default {
         })
         //关闭loading
         this.loginLoading=false
+
+        //跳转到首页
+        this.$router.push({
+          name:'home'
+        })
 
       }).catch(err=>{
         console.log('失败',err)
