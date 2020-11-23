@@ -90,7 +90,7 @@ export default {
   border-bottom: 1px solid #ccc;
 }
 .main {
-  background-color: chocolate;
+  background-color:#e9eef3;
 }
 .avatar-wrap{
   display: flex;
